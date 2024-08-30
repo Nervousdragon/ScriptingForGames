@@ -1,0 +1,4 @@
+repository "AdventureGame@NervousDragon423@cloud"
+  path "/"
+    br "/main"
+    co "/main"
