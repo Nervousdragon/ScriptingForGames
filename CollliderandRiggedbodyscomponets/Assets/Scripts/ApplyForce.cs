@@ -6,9 +6,9 @@ public class ApplyForce : MonoBehaviour
 {
     private Rigidbody rb;
     
-    private void start()
+    private void Start()
     {
-        rb = GetCompoent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         rb.AddForce(Vector3.right * 500);
     }
 }
