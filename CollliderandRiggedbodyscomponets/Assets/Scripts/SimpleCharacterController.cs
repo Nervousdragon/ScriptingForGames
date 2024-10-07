@@ -15,48 +15,51 @@ public class SimpleCharacterController : MonoBehaviour
 
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
-        thisTransform = transform;
+       controller = GetComponent<CharacterController>();
+       thisTransform = transform;
     }
+       
+    
 
     private void Update()
     {
-        MoveCharacter();
-        ApplyGravity();
-        KeepCharacterOnXAxis();
+      MoveCharacter();
+      ApplyGravity();
+      KeepCharacterOnXAxis();
     }
 
 
     private void MoveCharacter()
     {
-        // Horizontal movement
+        // Horizontal movement 
         var moveInput = Input.GetAxis("Horizontal");
-        var move = new Vector3(moveInput, 0f, 0f) * (moveSpeed * Time.deltaTime);
+        var move = new Vector3(moveInput,0f,0f)*(moveSpeed * Time.deltaTime);
         controller.Move(move);
-
+        
         // Jumping 
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
     }
-
-    private void ApplyGravity()
+    
+    
+     private void ApplyGravity()
     {
         // Apply gravity when not grounded
         if (!controller.isGrounded)
-        {
+        { 
             velocity.y += gravity * Time.deltaTime;
         }
         else
         {
-            velocity.y = 0f; // Reset velocity when grounded 
+            velocity.y = 0f; // Reset velocity when grounded
         }
-
-        // Apply the velocity to the  controller 
+        
+        // Apply the velocity to the controller
         controller.Move(velocity * Time.deltaTime);
-    }
-
+    }   
+    
     private void KeepCharacterOnXAxis()
     {
         // Maintain character on the same z-axis position
@@ -64,8 +67,7 @@ public class SimpleCharacterController : MonoBehaviour
         currentPosition.z = 0f;
         thisTransform.position = currentPosition;
     }
-
-}        
+}       
         
     
 
