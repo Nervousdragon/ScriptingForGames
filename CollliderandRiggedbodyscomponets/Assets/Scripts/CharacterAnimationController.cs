@@ -31,7 +31,7 @@ public class CharacterAnimationController : MonoBehaviour
         // Handle jumping 
         if (Input.GetButtonDown("Jump"))
         {
-            animator.SetTrigger("Jump");
+            animator.SetTrigger("JumpTrigger");
         }
         
         // Handle wall jumping 
